@@ -3,8 +3,16 @@ const { myLayer } = useAppConfig()
 </script>
 
 <template>
-  <div>
-    <h1>Hello World!</h1>
-    <pre>{{ myLayer }}</pre>
-  </div>
+  <UCard>
+    <template #header>
+      <h2 class="text-xl font-semibold">Hello World!</h2>
+    </template>
+    
+    <UAlert
+      color="success"
+      variant="soft"
+      title="Layer Configuration"
+      :description="`Name: ${myLayer.name}`"
+    />
+  </UCard>
 </template>
