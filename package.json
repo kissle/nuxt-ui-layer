@@ -3,6 +3,12 @@
   "type": "module",
   "version": "0.0.1",
   "main": "./nuxt.config.ts",
+  "files": [
+    "app",
+    "app.config.ts",
+    "nuxt.config.ts",
+    "tsconfig.json"
+  ],
   "scripts": {
     "dev": "nuxi dev .playground",
     "dev:prepare": "nuxt prepare .playground",
@@ -12,11 +18,11 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@nuxt/eslint": "latest",
+    "@nuxt/eslint": "^1.12.1",
     "@types/node": "^24.10.4",
     "eslint": "^9.39.2",
     "nuxt": "^4.2.2",
     "typescript": "^5.9.3",
-    "vue": "latest"
+    "vue": "^3.5.0"
   }
 }
