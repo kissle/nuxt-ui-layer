@@ -20,7 +20,7 @@
       <template #right>
         <UButton
           to="https://github.com/kissle/nuxt-ui-layer"
-          target="_blank"
+          external
           color="gray"
           variant="ghost"
           icon="i-simple-icons-github"
