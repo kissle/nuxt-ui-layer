@@ -5,7 +5,6 @@
   "main": "./nuxt.config.ts",
   "files": [
     "app",
-    "app.config.ts",
     "nuxt.config.ts",
     "tsconfig.json"
   ],
