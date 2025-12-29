@@ -1,6 +1,6 @@
 <template>
   <div>
-    <UHeader title="Nuxt UI Layer">
+    <UHeader title="FAX UI Layer">
       <template #right>
         <UColorModeButton />
       </template>
