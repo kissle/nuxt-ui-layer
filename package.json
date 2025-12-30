@@ -3,17 +3,12 @@
   "type": "module",
   "version": "0.0.1",
   "main": "./nuxt.config.ts",
-  "files": [
-    "app",
-    "nuxt.config.ts",
-    "tsconfig.json"
-  ],
   "scripts": {
-    "dev": "nuxi dev .playground",
-    "dev:prepare": "nuxt prepare .playground",
-    "build": "nuxt build .playground",
-    "generate": "nuxt generate .playground",
-    "preview": "nuxt preview .playground",
+    "dev": "nuxi dev",
+    "dev:prepare": "nuxt prepare",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
     "lint": "eslint ."
   },
   "devDependencies": {
@@ -26,5 +21,6 @@
   },
   "dependencies": {
     "@nuxt/ui": "^4.3.0"
-  }
+  },
+  "packageManager": "pnpm@10.23.0+sha512.21c4e5698002ade97e4efe8b8b4a89a8de3c85a37919f957e7a0f30f38fbc5bbdd05980ffe29179b2fb6e6e691242e098d945d1601772cad0fef5fb6411e2a4b"
 }
