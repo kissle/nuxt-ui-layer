@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const confetti = ref<{ trigger: () => void } | null>(null)
+
+function triggerConfetti() {
+  confetti.value?.trigger()
+}
+</script>
+
 <template>
   <div>
     <UContainer>
@@ -25,6 +35,7 @@
                 <li>Card for content organization</li>
                 <li>Alert for notifications</li>
                 <li>Button for interactions</li>
+                <li>Confetti for celebrations</li>
               </ul>
             </div>
 
@@ -34,6 +45,9 @@
               </UButton>
               <UButton color="gray" variant="soft" size="lg">
                 Secondary Button
+              </UButton>
+              <UButton color="green" size="lg" @click="triggerConfetti">
+                🎉 Trigger Confetti
               </UButton>
             </div>
           </div>
@@ -46,5 +60,7 @@
         </UCard>
       </div>
     </UContainer>
+
+    <Confetti ref="confetti" />
   </div>
 </template>
