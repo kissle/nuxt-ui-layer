@@ -2,6 +2,44 @@
 
 A reusable Nuxt layer for maintaining consistent design systems across projects.
 
+## Using this Layer in Your Project
+
+To integrate this layer into your Nuxt project, follow these steps:
+
+### 1. Install Dependencies
+
+First, install the required dependencies:
+
+```bash
+npm install @nuxt/ui tailwindcss
+# or
+pnpm add @nuxt/ui tailwindcss
+# or
+yarn add @nuxt/ui tailwindcss
+```
+
+### 2. Create CSS File
+
+Create a `app/assets/css/main.css` file in your project with the following imports:
+
+```css
+@import "tailwindcss";
+@import "@nuxt/ui";
+```
+
+### 3. Extend the Layer
+
+Add this layer to your `nuxt.config.ts` by extending it from GitHub:
+
+```ts
+export default defineNuxtConfig({
+  extends: ['github:kissle/nuxt-ui-layer'],
+  css: ['~/app/assets/css/main.css']
+})
+```
+
+That's it! Your project will now use this Nuxt UI layer with all its components and styling.
+
 ## Setup
 
 Make sure to install the dependencies:
