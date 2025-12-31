@@ -61,6 +61,6 @@ function triggerConfetti() {
       </div>
     </UContainer>
 
-    <Confetti ref="confetti" />
+    <ConfettiAnimation ref="confetti" />
   </div>
 </template>

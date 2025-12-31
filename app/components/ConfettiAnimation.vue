@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 
@@ -12,6 +11,7 @@ interface ConfettiParticle {
   rotationSpeed: number
   width: number
   height: number
+  active: boolean
 }
 
 const props = defineProps<{
@@ -44,23 +44,32 @@ function createParticles() {
       rotation: Math.random() * 360,
       rotationSpeed: (Math.random() - 0.5) * 10,
       width: Math.random() * 10 + 5,
-      height: Math.random() * 8 + 4
+      height: Math.random() * 8 + 4,
+      active: true
     })
   }
 }
 
 function updateParticles() {
+  let activeCount = 0
+  
   particles.forEach(particle => {
+    if (!particle.active) return
+    
     particle.x += particle.vx
     particle.y += particle.vy
     particle.vy += 0.3 // gravity
     particle.rotation += particle.rotationSpeed
+    
+    // Mark particle as inactive if off screen
+    if (particle.y > (canvas.value?.height || 0) + 20) {
+      particle.active = false
+    } else {
+      activeCount++
+    }
   })
   
-  // Remove particles that are off screen
-  particles = particles.filter(p => p.y < (canvas.value?.height || 0) + 20)
-  
-  if (particles.length === 0 && isAnimating) {
+  if (activeCount === 0 && isAnimating) {
     stopAnimation()
     emit('complete')
   }
@@ -72,7 +81,7 @@ function drawParticles() {
   ctx.clearRect(0, 0, canvas.value.width, canvas.value.height)
   
   particles.forEach(particle => {
-    if (!ctx) return
+    if (!particle.active) return
     
     ctx.save()
     ctx.translate(particle.x, particle.y)
